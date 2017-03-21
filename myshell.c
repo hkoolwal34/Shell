@@ -30,7 +30,7 @@ void run_shell()
 	int token_count=0;
 	char path[100] = "/bin/";
 	char clear[100] = "/usr";
-//	int j;
+
 	pid_t j;
 		
 	do
@@ -58,13 +58,8 @@ void run_shell()
 		
 		if(j==0)	
 		{
-
-			printf("\n%s\n",arguements[0]);
-			printf("\n%s\n",arguements[1]);
-			printf("\n%s\n",path);
-			int error = execl(path,"/home",arguements[1]);						
-
-//			if(execvp(*arguements,arguements)<0)
+//			int error = execl(path,"",NULL);						
+			int error = execv(path,arguements);
 
 			if(error==-1)
 				printf("ERROR:Command Not Found\n");	
@@ -72,12 +67,10 @@ void run_shell()
 		else
 		{
 			 while (wait(&status) != j); 
-//			wait();
-//			printf("\n\n\n\n\n\nHarshit\n\n\n\n\n");	
 		}	
 		
 		strcpy(path,"/bin/");
-	}while(status);
+	}while(1);
 	
 }
 
