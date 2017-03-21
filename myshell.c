@@ -58,8 +58,8 @@ void run_shell()
 		
 		if(j==0)	
 		{
-//			int error = execl(path,"",NULL);						
-			int error = execv(path,arguements);
+			int error = execl(path,"",NULL);						
+//			int error = execvp(arguements[0],arguements);
 
 			if(error==-1)
 				printf("ERROR:Command Not Found\n");	
